@@ -35,5 +35,6 @@ void Game::play(){
         winGame = board.checkWin(playerNow);
         game.switchPlayer(playerNow);
     }
+    board.display();
 
 }
