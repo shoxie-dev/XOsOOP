@@ -9,6 +9,6 @@ public:
     Game();
     void play();
     void switchPlayer(char& currentPlayer);
-    //void announceResult();
+    void announceResult(char& currentPlayer);
 };
 #endif

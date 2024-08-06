@@ -11,5 +11,6 @@ public:
     void placeMove(int row, int col, char symbol);
     bool checkWin(char symbol);
     bool isFull();
+    void clear();
 };
 #endif

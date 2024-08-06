@@ -12,6 +12,7 @@ Board::Board(){
 }
 
 void Board::display(){
+    clear();
     for(size_t i{}; i < 3; ++i){
         for(size_t j{}; j < 3; ++j){
             std::cout << std::setw(2) << grid[i][j];
@@ -24,7 +25,7 @@ bool Board::isValidMove(int row, int col){
     bool isValid = false;
     if((row >= 0 && row < 3) && (col >= 0 && col < 3))
         if(grid[row][col] == 'x' || grid[row][col] == 'o'){
-            std::cout << "Move is invalid" << std::endl;
+            std::cout << "Move is invalid. New input required." << std::endl;
         }else if(grid[row][col] == '.'){
             std::cout << "Move is valid" << std::endl;
             isValid = true;
@@ -33,10 +34,8 @@ bool Board::isValidMove(int row, int col){
 }
 
 void Board::placeMove(int row, int col, char symbol){
-    bool makeMove = isValidMove(row,col);
-    if(makeMove == true){
-        grid[row][col] = symbol;
-    }
+    grid[row][col] = symbol;
+
 }
 
 bool Board::checkWin(char symbol){
@@ -44,26 +43,26 @@ bool Board::checkWin(char symbol){
     //horizontal checks
     for(size_t i{}; i < 3; ++i){
         if(grid[i][0] == symbol && grid[i][1] == symbol && grid[i][2] == symbol){
-            std::cout << "Winner is player: " << symbol << std::endl;
+            //std::cout << "Winner is player: " << symbol << std::endl;
             winner = true;
         }
     }
     //vertical checks
     for(size_t j{}; j < 3; ++j){
         if(grid[0][j] == symbol && grid[1][j] == symbol && grid[2][j] == symbol){
-            std::cout << "Winner is player: " << symbol << std::endl;
+            //std::cout << "Winner is player: " << symbol << std::endl;
             winner = true;
         }
     }
     //diagonal
     if(grid[0][0] == symbol && grid[1][1] == symbol && grid[2][2] == symbol){
-        std::cout << "Winner is player: " << symbol << std::endl;
-            winner = true;
+        //std::cout << "Winner is player: " << symbol << std::endl;
+        winner = true;
     }
     //off diagonal
     if(grid[0][2] == symbol && grid[1][1] == symbol && grid[2][0] == symbol){
-        std::cout << "Winner is player: " << symbol << std::endl;
-            winner = true;
+        //std::cout << "Winner is player: " << symbol << std::endl;
+        winner = true;
     }
     return winner;
 }
@@ -95,6 +94,10 @@ bool Board::isFull(){
             draw_game = true;
         }
         return draw_game;
+}
+
+void Board::clear(){
+    std::cout << "\x1B[2J\x1B[H";   
 }
 
 

@@ -19,6 +19,7 @@ Game::Game(){
 void Game::play(){
     Game game;
     Board board;
+    bool legalMove = false;
     bool drawGame = false;
     bool winGame = false;
     char playerNow = 'o';
@@ -27,14 +28,24 @@ void Game::play(){
     while(drawGame == false && winGame == false){
         board.display();
         std::cout << "Input a move" << std::endl;
-        std::cin >> r;
-        std::cin >> c;
-        board.isValidMove(r,c);
+        while(legalMove == false){
+            std::cin >> r;
+            std::cin >> c;
+            legalMove = board.isValidMove(r,c);
+        }
+        legalMove = false;
         board.placeMove(r,c,playerNow);
         drawGame = board.isFull();
         winGame = board.checkWin(playerNow);
+        if(winGame == true){
+            announceResult(playerNow);
+            break;
+        }
         game.switchPlayer(playerNow);
     }
-    board.display();
 
+}
+
+void Game::announceResult(char& currentPlayer){
+    std::cout << "Winner is : " << currentPlayer << std::endl;
 }
