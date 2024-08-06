@@ -38,6 +38,7 @@ void Game::play(){
         drawGame = board.isFull();
         winGame = board.checkWin(playerNow);
         if(winGame == true){
+            board.display();
             announceResult(playerNow);
             break;
         }
