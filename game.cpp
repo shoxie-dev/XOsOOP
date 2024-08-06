@@ -48,6 +48,6 @@ void Game::play(){
 }
 
 void Game::announceResult(char& currentPlayer){
-    std::cout << "Winner is: " << currentPlayer << std::endl;
+    std::cout << "Winner is yep: " << currentPlayer << std::endl;
 }
 
