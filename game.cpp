@@ -35,11 +35,16 @@ void Game::play(){
         }
         legalMove = false;
         board.placeMove(r,c,playerNow);
-        drawGame = board.isFull();
         winGame = board.checkWin(playerNow);
         if(winGame == true){
             board.display();
-            announceResult(playerNow);
+            announceResult(playerNow,winGame);
+            break;
+        }
+        drawGame = board.isFull();
+        if(drawGame == true){
+            board.display();
+            announceResult(drawGame);
             break;
         }
         game.switchPlayer(playerNow);
@@ -47,7 +52,16 @@ void Game::play(){
 
 }
 
-void Game::announceResult(char& currentPlayer){
-    std::cout << "Winner is : " << currentPlayer << std::endl;
+void Game::announceResult(char& currentPlayer, bool win){
+    if(win == true){
+        std::cout << "Winner is : " << currentPlayer << std::endl;
+    }
+
+}
+
+void Game::announceResult(bool draw){
+    std::cout << "Game is a draw. " << std::endl;
+
+
 }
 //dr.dre don't just stand there, operate.

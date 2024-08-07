@@ -9,6 +9,7 @@ public:
     Game();
     void play();
     void switchPlayer(char& currentPlayer);
-    void announceResult(char& currentPlayer);
+    void announceResult(char& currentPlayer,bool win);
+    void announceResult(bool draw);
 };
 #endif
