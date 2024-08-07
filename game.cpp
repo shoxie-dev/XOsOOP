@@ -61,7 +61,5 @@ void Game::announceResult(char& currentPlayer, bool win){
 
 void Game::announceResult(bool draw){
     std::cout << "Game is a draw. " << std::endl;
-
-
 }
 //dr.dre don't just stand there, operate.
