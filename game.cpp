@@ -44,7 +44,7 @@ void Game::play(){
         drawGame = board.isFull();
         if(drawGame == true){
             board.display();
-            announceResult(drawGame);
+            announceResult();
             break;
         }
         game.switchPlayer(playerNow);
@@ -59,7 +59,7 @@ void Game::announceResult(char& currentPlayer, bool win){
 
 }
 
-void Game::announceResult(bool draw){
+void Game::announceResult(){
     std::cout << "Game is a draw. " << std::endl;
 }
 //dr.dre don't just stand there, operate.

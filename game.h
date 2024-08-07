@@ -10,6 +10,6 @@ public:
     void play();
     void switchPlayer(char& currentPlayer);
     void announceResult(char& currentPlayer,bool win);
-    void announceResult(bool draw);
+    void announceResult();
 };
 #endif
